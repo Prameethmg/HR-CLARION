@@ -1,10 +1,9 @@
 # HR-CLARION
 
-># HR-CLARION
 
  **Finalist — Build Bengaluru Hackathon (Hosted at Microsoft)** 
 
-> Built for the Build Bengaluru hackathon, this production-grade AI policy agent uses Qwen reasoning and a mock RAG architecture to automate HR queries. It features role-based dashboards, automated workflows, and an innovative, secure channel for employees to anonymously report workplace harassment and abuse.
+> Built for the Build Bengaluru hackathon, this production-grade AI policy agent uses Qwen reasoning and a mock RAG architecture to automate HR queries. It features role based dashboards, automated workflows, and an innovative, secure channel for employees to anonymously report workplace harassment and abuse.
 
 ## ✨ Features
 
