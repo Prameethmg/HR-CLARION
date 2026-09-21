@@ -1,0 +1,24 @@
+-- Remove leftover test/gibberish demo artifacts only, by exact identifier.
+
+-- 1) Gibberish speak-up reports: delete FK children first, then the reports.
+DELETE FROM speakup_access_log WHERE report_id IN (
+  SELECT id FROM speakup_reports WHERE report_token IN ('t6r2OIinYS6f','SZnJs0mIXekU','P20hfqDzRhMG','nWH2rEXETaz5')
+);
+DELETE FROM speakup_notes WHERE report_id IN (
+  SELECT id FROM speakup_reports WHERE report_token IN ('t6r2OIinYS6f','SZnJs0mIXekU','P20hfqDzRhMG','nWH2rEXETaz5')
+);
+DELETE FROM speakup_contact WHERE report_id IN (
+  SELECT id FROM speakup_reports WHERE report_token IN ('t6r2OIinYS6f','SZnJs0mIXekU','P20hfqDzRhMG','nWH2rEXETaz5')
+);
+DELETE FROM speakup_reports WHERE report_token IN ('t6r2OIinYS6f','SZnJs0mIXekU','P20hfqDzRhMG','nWH2rEXETaz5');
+
+-- 2) Test escalations.
+DELETE FROM escalations WHERE escalation_id IN ('ESC-TEST-TEMP','ESC-1789774009437-5673');
+
+-- 3) Test + orphaned notifications.
+DELETE FROM notifications WHERE id IN (
+  'NOTIF-1789751103479-8383',
+  'NOTIF-1789751103560-6148',
+  'NOTIF-1789751121170-6346',
+  'NOTIF-1789755646049-4573'
+);

@@ -1,0 +1,37 @@
+create table speakup_reports (
+  id uuid primary key default gen_random_uuid(),
+  report_token text unique not null,
+  category text not null check (category in ('HARASSMENT','DISCRIMINATION','RETALIATION','SAFETY','OTHER')),
+  incident_text text not null,
+  incident_period text,
+  location text,
+  wants_followup boolean not null default false,
+  status text not null default 'SUBMITTED' check (status in ('SUBMITTED','UNDER_REVIEW','CLOSED')),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create table speakup_contact (
+  report_id uuid primary key references speakup_reports(id),
+  contact_note text
+);
+
+create table speakup_notes (
+  id uuid primary key default gen_random_uuid(),
+  report_id uuid not null references speakup_reports(id),
+  author_id text,
+  note text,
+  created_at timestamptz not null default now()
+);
+
+create table speakup_access_log (
+  id uuid primary key default gen_random_uuid(),
+  report_id uuid not null references speakup_reports(id),
+  viewer_id text,
+  viewed_at timestamptz not null default now()
+);
+
+alter table speakup_reports enable row level security;
+alter table speakup_contact enable row level security;
+alter table speakup_notes enable row level security;
+alter table speakup_access_log enable row level security;

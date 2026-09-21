@@ -1,0 +1,33 @@
+create or replace function match_policies(
+  query_embedding vector(384),
+  match_count int,
+  dept text
+)
+returns table (
+  clause_id text,
+  doc_title text,
+  section_ref text,
+  topic text,
+  scope text,
+  precedence integer,
+  clause_text text,
+  similarity double precision
+)
+language sql
+stable
+as $$
+  select
+    p.clause_id,
+    p.doc_title,
+    p.section_ref,
+    p.topic,
+    p.scope,
+    p.precedence,
+    p.clause_text,
+    1 - (p.embedding <=> query_embedding) as similarity
+  from policies p
+  where p.embedding is not null
+    and (p.scope = 'COMPANY' or (dept is not null and p.scope = dept))
+  order by p.embedding <=> query_embedding asc
+  limit match_count;
+$$;

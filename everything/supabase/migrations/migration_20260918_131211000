@@ -1,0 +1,17 @@
+alter table employees
+  add column tenure_months integer,
+  add column months_since_promotion integer,
+  add column leave_utilisation_pct integer,
+  add column last_engagement_score integer,
+  add column overtime_flag boolean,
+  add column manager_changes_12m integer;
+
+update employees set tenure_months=18, months_since_promotion=8, leave_utilisation_pct=15, last_engagement_score=4, overtime_flag=false, manager_changes_12m=2 where id='EMP001';
+update employees set tenure_months=15, months_since_promotion=30, leave_utilisation_pct=25, last_engagement_score=2, overtime_flag=true, manager_changes_12m=2 where id='EMP002';
+update employees set tenure_months=10, months_since_promotion=27, leave_utilisation_pct=12, last_engagement_score=1, overtime_flag=true, manager_changes_12m=1 where id='EMP003';
+update employees set tenure_months=9, months_since_promotion=21, leave_utilisation_pct=18, last_engagement_score=3, overtime_flag=true, manager_changes_12m=1 where id='EMP004';
+update employees set tenure_months=60, months_since_promotion=10, leave_utilisation_pct=40, last_engagement_score=5, overtime_flag=false, manager_changes_12m=0 where id='MGR001';
+update employees set tenure_months=84, months_since_promotion=16, leave_utilisation_pct=35, last_engagement_score=4, overtime_flag=false, manager_changes_12m=1 where id='MGR002';
+update employees set tenure_months=30, months_since_promotion=26, leave_utilisation_pct=18, last_engagement_score=4, overtime_flag=false, manager_changes_12m=1 where id='MGR003';
+update employees set tenure_months=72, months_since_promotion=14, leave_utilisation_pct=45, last_engagement_score=5, overtime_flag=false, manager_changes_12m=0 where id='MGR004';
+update employees set tenure_months=48, months_since_promotion=12, leave_utilisation_pct=50, last_engagement_score=4, overtime_flag=false, manager_changes_12m=0 where id='HR001';

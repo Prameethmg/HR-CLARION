@@ -1,0 +1,1 @@
+UPDATE company_settings SET company_website = NULL, company_address = NULL, updated_at = now() WHERE id = true;

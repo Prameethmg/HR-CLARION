@@ -1,0 +1,1 @@
+UPDATE users SET role = 'IC' WHERE id = 'MGR001';

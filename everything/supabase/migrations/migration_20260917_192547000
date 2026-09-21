@@ -1,0 +1,56 @@
+create table users (
+  id text primary key,
+  password text,
+  role text
+);
+
+create table employees (
+  id text primary key,
+  name text,
+  department text,
+  role_title text,
+  manager_id text,
+  leave_balance integer,
+  wfh_used_this_month integer
+);
+
+create table policies (
+  clause_id text primary key,
+  doc_title text,
+  section_ref text,
+  topic text,
+  scope text,
+  precedence integer,
+  clause_text text,
+  effective_date date
+);
+
+create table requests (
+  request_id text primary key,
+  employee_id text,
+  request_type text,
+  details text,
+  reason text,
+  status text,
+  manager_id text,
+  decided_by text,
+  decided_at timestamp,
+  reasoning_snapshot text,
+  citations text
+);
+
+create table escalations (
+  escalation_id text primary key,
+  employee_id text,
+  question_text text,
+  reason text,
+  confidence numeric,
+  status text,
+  created_at timestamp
+);
+
+alter table users enable row level security;
+alter table employees enable row level security;
+alter table policies enable row level security;
+alter table requests enable row level security;
+alter table escalations enable row level security;

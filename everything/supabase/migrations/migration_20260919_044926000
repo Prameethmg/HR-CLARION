@@ -1,0 +1,13 @@
+create table company_settings (
+  id boolean primary key default true check (id),
+  company_name text,
+  company_tagline text,
+  company_email text,
+  company_phone text,
+  company_address text,
+  company_website text,
+  company_logo text,
+  updated_at timestamptz not null default now()
+);
+
+alter table company_settings enable row level security;

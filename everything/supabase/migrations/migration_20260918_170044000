@@ -1,0 +1,15 @@
+create table notifications (
+  id text primary key,
+  user_id text,
+  message text,
+  type text,
+  related_id text,
+  is_read boolean not null default false,
+  created_at timestamptz not null default now()
+);
+
+alter table notifications enable row level security;
+
+alter table escalations
+  add column hr_reply text,
+  add column hr_reply_at timestamptz;

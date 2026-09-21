@@ -1,0 +1,3 @@
+create extension if not exists vector;
+
+alter table policies add column embedding vector(384);
