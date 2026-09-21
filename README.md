@@ -1,6 +1,10 @@
 # HR-CLARION
 
-> HR-CLARION is an intelligent HR chatbot that helps employees navigate company policies like leave and work from home based directly on the employee manual. It also features a secure, dedicated reporting system for workplace grievances, allowing employees to report abuse, racism, or violence either anonymously or transparently.
+># HR-CLARION
+
+ **Finalist — Build Bengaluru Hackathon (Hosted at Microsoft)** 
+
+> Built for the Build Bengaluru hackathon, this production-grade AI policy agent uses Qwen reasoning and a mock RAG architecture to automate HR queries. It features role-based dashboards, automated workflows, and an innovative, secure channel for employees to anonymously report workplace harassment and abuse.
 
 ## ✨ Features
 
